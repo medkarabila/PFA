@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22 mai 2017 14:23:35 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="ma.ensao.entity.Chapitre" table="CHAPITRE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="chapitre" type="java.lang.String">
+            <column name="CHAPITRE" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="question" type="java.lang.String">
+            <column name="QUESTION" />
+        </property>
+        <property name="fichier" type="java.lang.String">
+            <column name="FICHIER" />
+        </property>
+        <many-to-one name="matiere" class="ma.ensao.entity.Matiere" fetch="join" lazy="false">
+            <column name="MATIERE" />
+        </many-to-one>
+        <property name="archiver" type="boolean">
+            <column name="ARCHIVER" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

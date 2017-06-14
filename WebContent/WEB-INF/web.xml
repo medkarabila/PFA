@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Elearning-PFE</display-name>
+  <welcome-file-list>
+  	<welcome-file>App</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>Front</servlet-name>
+    <servlet-class>ma.ensao.servlets.FrontServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Front</servlet-name>
+    <url-pattern>/Front</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Matiere</servlet-name>
+    <servlet-class>ma.ensao.servlets.FrontMatiere</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Matiere</servlet-name>
+    <url-pattern>/Matiere</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>App</servlet-name>
+    <servlet-class>ma.ensao.servlets.AppServlets</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>App</servlet-name>
+    <url-pattern>/App</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+    <servlet-name>Chapitre</servlet-name>
+    <servlet-class>ma.ensao.servlets.ChapitreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Chapitre</servlet-name>
+    <url-pattern>/Chapitre</url-pattern>
+  </servlet-mapping>
+      <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>ma.ensao.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>ma.ensao.servlets.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>Admin</servlet-name>
+    <servlet-class>ma.ensao.servlets.AdminServlet</servlet-class>
+    <multipart-config>
+      <location>/Users/mac/Documents/workspacepfa/Elearning-PFE/WebContent/images/</location>
+      <max-file-size>10485760</max-file-size>
+      <max-request-size>52428800</max-request-size>
+      <file-size-threshold>5242880</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Admin</servlet-name>
+    <url-pattern>/Admin</url-pattern>
+  </servlet-mapping>
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <include-prelude>/WEB-INF/lib/taglibs.jsp</include-prelude>
+    </jsp-property-group>
+  </jsp-config>
+  
+</web-app>

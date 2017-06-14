@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 mai 2017 09:42:13 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="ma.ensao.entity.Categories" table="CATEGORIES">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="categorie" type="java.lang.String">
+            <column name="CATEGORIE" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="icon" type="java.lang.String">
+            <column name="ICON" />
+        </property>
+        <property name="archiver" type="boolean">
+            <column name="ARCHIVER" />
+        </property>
+    </class>
+</hibernate-mapping>
