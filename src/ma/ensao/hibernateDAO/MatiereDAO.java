@@ -63,6 +63,34 @@ Session session;
 			}
 		}	
 	}
+	public List<Matiere> getMatieresById(Long id){
+		List<Matiere> matieres=new ArrayList();
+		
+		session=setSession();
+		try{
+			session.beginTransaction();
+			
+			Query<Matiere> query=session.createQuery("From Matiere where editeur="+id);
+			matieres=query.list();
+			session.getTransaction().commit();
+			
+			return matieres;
+		}catch(HibernateException he){
+			
+			he.printStackTrace();
+			if(session.getTransaction()!=null){
+				session.getTransaction().rollback();
+			}
+			
+			return null;
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}	
+	}
+	
+	
 	public Matiere getMatiereById(Integer id){
 		Matiere matiere=null;
 		Session session=setSession();

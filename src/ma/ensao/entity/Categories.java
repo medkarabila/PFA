@@ -38,6 +38,7 @@ public class Categories {
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
+
 	public Categories(Integer id, String categorie, String description,
 			String icon,boolean archiver) {
 		super();

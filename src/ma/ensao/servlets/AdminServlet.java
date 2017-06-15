@@ -60,6 +60,7 @@ public class AdminServlet extends HttpServlet {
 		Module mo = new Module();
 		ModuleDAO modao = new ModuleDAO();
 		MatiereDAO madao = new MatiereDAO();
+		user = (User) req.getSession(true).getAttribute("user");
 		
 		
 		
@@ -197,12 +198,14 @@ public class AdminServlet extends HttpServlet {
 
 		List<Module> modules = new ArrayList();
 		ModuleDAO MDAO = new ModuleDAO();
-		modules = MDAO.getModules();
+		modules = MDAO.getModulesById(user.getId());
 
 		ArrayList listeModule = new ArrayList();
 
 		Map map;
+		
 		for (Module module : modules) {
+			
 			map = new HashMap();
 			map.put("id", module.getId());
 			map.put("module", module.getModule());
@@ -210,13 +213,15 @@ public class AdminServlet extends HttpServlet {
 			map.put("categorie", module.getCategorie());
 			map.put("image", module.getImage());
 			map.put("archiver", module.isArchiver());
+			map.put("editeur", user.getId());
+			
 			listeModule.add(map);
 		}
 		req.setAttribute("listeModule", listeModule);
 		
 		List<Matiere> matieres = new ArrayList();
 		MatiereDAO MatDAO = new MatiereDAO();
-		matieres = MatDAO.selectAllData();
+		matieres = MatDAO.getMatieresById(user.getId());
 
 		ArrayList listeMatiere = new ArrayList();
 
@@ -228,6 +233,7 @@ public class AdminServlet extends HttpServlet {
 			map1.put("description", matiere1.getDescription());
 			map1.put("image", matiere1.getIcon());
 			map1.put("archiver", matiere1.isArchiver());
+			map1.put("editeur", user.getId());
 			listeMatiere.add(map1);
 		}
 		req.setAttribute("listeMatiere", listeMatiere);
@@ -448,6 +454,7 @@ public class AdminServlet extends HttpServlet {
 		CategorieDAO CD = new CategorieDAO();
 		String matt = null;
 		String categ = null;
+		Integer editeur = null;
 		Module module = new Module();
 		String chap = null;
 		String question = null;
@@ -561,6 +568,12 @@ public class AdminServlet extends HttpServlet {
 
 											if (nom1.equals("categorie")) {
 												categ = itemm.getString();
+												
+											}
+											if (nom1.equals("editeur")) {
+											
+												editeur = Integer.parseInt(itemm.getString());
+												
 											}
 
 										} else {
@@ -600,7 +613,7 @@ public class AdminServlet extends HttpServlet {
 							module.setModule(mod);
 							module.setCategorie(categoriee);
 							module.setArchiver(archive);
-
+							module.setEditeur(editeur);
 							ModuleDAO ModDAO = new ModuleDAO();
 							ModDAO.saveModule(module);
 							List<Module> Modules = new ArrayList();
@@ -657,6 +670,11 @@ public class AdminServlet extends HttpServlet {
 											if (nom1.equals("description")) {
 												descriptionn = itemm.getString();
 											}
+											if (nom1.equals("editeur")) {
+												
+												editeur = Integer.parseInt(itemm.getString());
+												
+											}
 
 										} else {
 
@@ -691,6 +709,7 @@ public class AdminServlet extends HttpServlet {
 							matiere.setIcon(imagee);
 							matiere.setMatiere(mat);
 							matiere.setArchiver(archive);
+							matiere.setEditeur(editeur);
 
 							MatiereDAO MDAO = new MatiereDAO();
 							MDAO.saveMatiere(matiere);

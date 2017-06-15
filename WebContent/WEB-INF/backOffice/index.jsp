@@ -89,7 +89,13 @@
 			<!-- nouveau module -->
 	<h2>Nouvelle Module</h2>
 		<form method='post' enctype='multipart/form-data'>
-			<input type='hidden' name='choix' value='nouveauModule'> 
+			
+			<input type='hidden' name='choix' value='nouveauModule'>
+			<c:forEach items="${listeModule }" var="module">
+			
+				<input type='hidden' name='editeur' value="${module.editeur}">	
+			</c:forEach>
+			
 			<input type='text' name='module' class='input' placeholder='Titre de module' required='Champ obligatoire'>
 			<br>
 			<textarea name='description' class='input textarea' placeholder='Description du module' required='Champ obligatoire'></textarea>
@@ -109,7 +115,7 @@
 				<span>${matiere.matiere }</span>
 
 			</c:forEach>
-
+	
 			</table>
 			<br>
 			<button type='submit' class='button'>Sauvegarder</button>
@@ -117,7 +123,11 @@
 		<!-- nouvelle matiere -->
 		<h2>Nouvelle Matière</h2>
 		<form method='post' enctype='multipart/form-data'>
-			<input type='hidden' name='choix' value='nlleMatiere'> 
+			<input type='hidden' name='choix' value='nlleMatiere'>
+			<c:forEach items="${listeMatiere }" var="matiere">
+			
+				<input type='hidden' name='editeur' value="${matiere.editeur}">	
+			</c:forEach> 
 			<input type='text' name='matiere' class='input' placeholder='Titre de la matiere' required='Champ oblégatoire'>
 			<br>
 			<textarea name='description' class='input textarea'

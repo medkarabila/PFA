@@ -7,6 +7,7 @@ public class Matiere {
 	private String description;
 	private String icon;
 	private boolean archiver;
+	private Integer editeur;
 	
 	
 	
@@ -20,13 +21,14 @@ public class Matiere {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Matiere(Integer id, String matiere, String description, String icon, boolean archiver) {
+	public Matiere(Integer id, String matiere, String description, String icon, boolean archiver,Integer editeur) {
 		super();
 		this.id = id;
 		this.matiere = matiere;
 		this.description = description;
 		this.icon = icon;
 		this.archiver=archiver;
+		this.editeur=editeur;
 	}
 	public Integer getId() {
 		return id;
@@ -51,6 +53,12 @@ public class Matiere {
 	}
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+	public Integer getEditeur() {
+		return editeur;
+	}
+	public void setEditeur(Integer editeur) {
+		this.editeur = editeur;
 	}
 	
 	
