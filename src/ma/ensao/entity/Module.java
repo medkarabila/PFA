@@ -9,7 +9,8 @@ public class Module {
 	private String description;
 	private String image;
 	private Categories categorie;
-	private boolean archiver ;  
+	private boolean archiver ;
+	private Integer editeur;
 	
 	public boolean isArchiver() {
 		return archiver;
@@ -22,7 +23,7 @@ public class Module {
 		// TODO Auto-generated constructor stub
 	}
 	public Module(Integer id, String module, String description, String image,
-			Categories categorie , boolean archiver) {
+			Categories categorie , boolean archiver,Integer editeur) {
 		super();
 		this.id = id;
 		this.module = module;
@@ -30,6 +31,7 @@ public class Module {
 		this.image = image;
 		this.categorie = categorie;
 		this.archiver=archiver;
+		this.editeur=editeur;
 	}
 	public Integer getId() {
 		return id;
@@ -61,5 +63,12 @@ public class Module {
 	public void setCategorie(Categories categorie) {
 		this.categorie = categorie;
 	}
+	public Integer getEditeur() {
+		return editeur;
+	}
+	public void setEditeur(Integer editeur) {
+		this.editeur = editeur;
+	}
+	
 	
 }

@@ -20,5 +20,8 @@
         <property name="archiver" type="boolean">
             <column name="ARCHIVER" />
         </property>
+        <property name="editeur" type="java.lang.Integer">
+            <column name="EDITEUR" />
+        </property>
     </class>
 </hibernate-mapping>

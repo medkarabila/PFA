@@ -38,6 +38,27 @@ public class ModuleDAO {
 		
 		return module;
 	}
+	public List<Module> getModulesById(Long id){
+		List<Module> modules=null;
+		Session session=setSession();
+		try{
+			modules=new ArrayList();
+			session.beginTransaction();
+			Query<Module> query=session.createQuery("From Module where editeur="+id);
+			modules=query.list();
+			session.getTransaction().commit();
+		}catch(HibernateException he){
+			he.printStackTrace();
+			if(session.getTransaction()!=null){
+				session.getTransaction().rollback();
+			}
+		}finally{
+			if(session!=null){
+				session.close();
+			}
+		}
+		return modules;
+	}
 	public List<Module> getModules(){
 		List<Module> modules=null;
 		Session session=setSession();
